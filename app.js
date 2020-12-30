@@ -56,8 +56,8 @@ window.addEventListener("DOMContentLoaded", ()=>{
 
 // show person based on item
 
-const showPerson=(person)=>{
-  const item=reviews[person];
+const showPerson=()=>{
+  const item=reviews[currentItem];
   img.src= item.img;
   // img.src= reviews[currentItem].img; same with upper assignment
   author.textContent=item.name;
@@ -72,7 +72,7 @@ nextBtn.addEventListener("click", ()=>{
   if(currentItem > reviews.length-1){
     currentItem=0;
   }
-  showPerson(currentItem);
+  showPerson();
 })
 
 // show previous
@@ -83,6 +83,13 @@ prevBtn.addEventListener("click", ()=>{
   if(currentItem < 0){
     currentItem=reviews.length-1;
   }
-  showPerson(currentItem);
+  showPerson();
+})
+
+// show random
+
+randomBtn.addEventListener("click", ()=>{
+  currentItem=Math.floor(Math.random()*reviews.length);
+  showPerson();
 })
 
