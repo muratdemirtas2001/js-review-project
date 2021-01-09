@@ -37,59 +37,57 @@ const reviews = [
       "Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ",
   },
 ];
-const img=document.getElementById('person-img');
-const author=document.getElementById('author');
-const job=document.getElementById('job');
-const info=document.getElementById('info');
+const img = document.getElementById("person-img");
+const author = document.getElementById("author");
+const job = document.getElementById("job");
+const info = document.getElementById("info");
 
-const prevBtn=document.querySelector(".prev-btn")
-const nextBtn=document.querySelector(".next-btn")
-const randomBtn=document.querySelector(".random-btn")
+const prevBtn = document.querySelector(".prev-btn");
+const nextBtn = document.querySelector(".next-btn");
+const randomBtn = document.querySelector(".random-btn");
 
 //setting first item to display
-let currentItem=0;
+let currentItem = 0;
 
 //load initial item
-window.addEventListener("DOMContentLoaded", ()=>{
- showPerson(currentItem);
-})
+window.addEventListener("DOMContentLoaded", () => {
+  showPerson();
+});
 
 // show person based on item
 
-const showPerson=()=>{
-  const item=reviews[currentItem];
-  img.src= item.img;
+const showPerson = () => {
+  const item = reviews[currentItem];
+  img.src = item.img;
   // img.src= reviews[currentItem].img; same with upper assignment
-  author.textContent=item.name;
-  job.textContent=item.job;
-  info.textContent=item.text;
-}
+  author.textContent = item.name;
+  job.textContent = item.job;
+  info.textContent = item.text;
+};
 
 // show next person
 
-nextBtn.addEventListener("click", ()=>{
+nextBtn.addEventListener("click", () => {
   currentItem++;
-  if(currentItem > reviews.length-1){
-    currentItem=0;
+  if (currentItem > reviews.length - 1) {
+    currentItem = 0;
   }
   showPerson();
-})
+});
 
 // show previous
 
-
-prevBtn.addEventListener("click", ()=>{
+prevBtn.addEventListener("click", () => {
   currentItem--;
-  if(currentItem < 0){
-    currentItem=reviews.length-1;
+  if (currentItem < 0) {
+    currentItem = reviews.length - 1;
   }
   showPerson();
-})
+});
 
 // show random
 
-randomBtn.addEventListener("click", ()=>{
-  currentItem=Math.floor(Math.random()*reviews.length);
+randomBtn.addEventListener("click", () => {
+  currentItem = Math.floor(Math.random() * reviews.length);
   showPerson();
-})
-
+});
